@@ -15,19 +15,19 @@ public class HibernateUtils {
 		Configuration c = new Configuration();
 
 		c.addAnnotatedClass(Pessoa.class);
-        c.addPackage(Pessoa.class.getPackage().getName());
+		c.addPackage(Pessoa.class.getPackage().getName());
 
-        c.setProperty(AvailableSettings.DIALECT, "org.hibernate.dialect.MySQLDialect");
-        c.setProperty(AvailableSettings.DRIVER, "com.mysql.jdbc.Driver");
-        c.setProperty(AvailableSettings.USER, "root");
-        c.setProperty(AvailableSettings.PASS, "root");
-        c.setProperty(AvailableSettings.URL, "jdbc:mysql://localhost:3306/test");
+		c.setProperty(AvailableSettings.DIALECT, "org.hibernate.dialect.MySQLDialect");
+		c.setProperty(AvailableSettings.DRIVER, "com.mysql.jdbc.Driver");
+		c.setProperty(AvailableSettings.USER, "root");
+		c.setProperty(AvailableSettings.PASS, "root");
+		c.setProperty(AvailableSettings.URL, "jdbc:mysql://localhost:3306/test");
 
-        c.setProperty(AvailableSettings.HBM2DDL_AUTO, "create");
+		c.setProperty(AvailableSettings.HBM2DDL_AUTO, "create");
 
-        ServiceRegistry registry = new StandardServiceRegistryBuilder().applySettings(c.getProperties()).build();
+		ServiceRegistry registry = new StandardServiceRegistryBuilder().applySettings(c.getProperties()).build();
 
-        sessionFactory = c.buildSessionFactory(registry);
+		sessionFactory = c.buildSessionFactory(registry);
 
 	}
 
