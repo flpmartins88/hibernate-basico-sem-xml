@@ -1,4 +1,4 @@
-package com.wordpress.flpmartins88.basico;
+package io.github.flpmartins88.basico;
 
 import java.io.Serializable;
 
@@ -13,7 +13,7 @@ public class Pessoa implements Serializable {
 
 	@Id @GeneratedValue
 	private Long id;
-	
+
 	private String nome;
 
 	public Long getId() {
@@ -31,7 +31,7 @@ public class Pessoa implements Serializable {
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
-	
-	
-	
+
+
+
 }
