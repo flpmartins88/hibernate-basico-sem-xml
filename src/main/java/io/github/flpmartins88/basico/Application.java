@@ -1,29 +1,24 @@
 package io.github.flpmartins88.basico;
 
-import java.util.List;
-
+import javax.persistence.criteria.CriteriaQuery;
 import org.hibernate.Session;
 
-public class Main {
+public class Application {
 
 	public static void main(String[] args) {
 
 		Session session = HibernateUtils.getSessionFactory().openSession();
-
-
 		session.beginTransaction();
 
-		Pessoa p1 = new Pessoa();
-		p1.setNome("Felipe");
-		session.save(p1);
-
-		Pessoa p2 = new Pessoa();
-		p2.setNome("Ana");
-		session.save(p2);
+		session.save(new Pessoa("Felipe"));
+		session.save(new Pessoa("Ana"));
 
 		session.getTransaction().commit();
 
-		for (Pessoa p:(List<Pessoa>) session.createCriteria(Pessoa.class).list()) {
+		CriteriaQuery<Pessoa> criteria = session.getCriteriaBuilder().createQuery(Pessoa.class);
+		criteria.from(Pessoa.class);
+
+		for (Pessoa p : session.createQuery(criteria).getResultList()) {
 			System.out.println(p.getNome());
 		}
 

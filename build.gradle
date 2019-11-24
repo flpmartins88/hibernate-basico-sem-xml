@@ -1,0 +1,21 @@
+plugins {
+    id 'java'
+    id 'application'
+}
+
+mainClassName = 'io.github.flpmartins88.basico.Application'
+
+repositories {
+    mavenLocal()
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'org.hibernate:hibernate-core:5.4.4.Final'
+    implementation 'com.h2database:h2:1.4.199'
+}
+
+group = 'com.wordpress.flpmartins88'
+version = '1.0.0'
+sourceCompatibility = '1.13'
+
